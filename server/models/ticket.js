@@ -1,7 +1,7 @@
 /**
  * @swagger
  * definitions:
- *   Event:
+ *   Ticket:
  *     properties:
  *       id:
  *         type: number
@@ -11,17 +11,14 @@
  *         type: string
  *       date:
  *         type: string
- *       tickets:
- *         type: number
  */
-module.exports = class Event {
+module.exports = class Ticket {
     
-    constructor(id, title, description, date, tickets) {
+    constructor(id, title, description, date) {
         this.id = id || 0;
         this.title = title || 'Title';
         this.description = description || 'Description';
-        this.date = date || '00.00.0000';
-        this.tickets = tickets || 0;
+        this.date = date || 'Date';
     }
-
+    
 };

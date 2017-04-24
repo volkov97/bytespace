@@ -1,20 +1,20 @@
-const EventModel = require('../models/event');
+const VisitorModel = require('../models/visitor');
 
 module.exports = {
     /**
      * @swagger
-     * /events/:
+     * /visitors/:
      *   get:
      *     tags:
-     *       - Events
-     *     description: Get all museum events.
+     *       - Visitors
+     *     description: Get all museum visitors.
      *     produces:
      *       - application/json
      *     responses:
      *       200:
-     *         description: All bytespace museum events.
+     *         description: All bytespace museum visitors.
      *         schema:
-     *           $ref: '#/definitions/Event'
+     *           $ref: '#/definitions/Visitor'
      */
     getAll(req, res, next) {
         res.json({
@@ -27,26 +27,27 @@ module.exports = {
 
     /**
      * @swagger
-     * /events/{id}:
+     * /visitors/{id}:
      *   get:
      *     tags:
-     *       - Events
-     *     description: Get one museum event.
+     *       - Visitors
+     *     description: Get one museum visitor.
      *     produces:
      *       - application/json
      *     parameters:
      *       - name: id
      *         in: path
-     *         description: Id of event
+     *         description: Id of visitor
      *         required: true
      *         type: number
      *     responses:
      *       200:
-     *         description: One bytespace museum event.
+     *         description: One bytespace museum visitor.
      *         schema:
-     *           $ref: '#/definitions/Event'
+     *           $ref: '#/definitions/Visitor'
      */
     getOne(req, res, next) {
-        res.json(new EventModel());
+        res.json(new VisitorModel());
     }
+
 }

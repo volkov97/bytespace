@@ -1,20 +1,20 @@
-const EventModel = require('../models/event');
+const TicketModel = require('../models/ticket');
 
 module.exports = {
     /**
      * @swagger
-     * /events/:
+     * /tickets/:
      *   get:
      *     tags:
-     *       - Events
-     *     description: Get all museum events.
+     *       - Tickets
+     *     description: Get all museum ticekts.
      *     produces:
      *       - application/json
      *     responses:
      *       200:
-     *         description: All bytespace museum events.
+     *         description: All bytespace museum tickets.
      *         schema:
-     *           $ref: '#/definitions/Event'
+     *           $ref: '#/definitions/Ticket'
      */
     getAll(req, res, next) {
         res.json({
@@ -27,26 +27,27 @@ module.exports = {
 
     /**
      * @swagger
-     * /events/{id}:
+     * /tickets/{id}:
      *   get:
      *     tags:
-     *       - Events
-     *     description: Get one museum event.
+     *       - Tickets
+     *     description: Get one museum ticket.
      *     produces:
      *       - application/json
      *     parameters:
      *       - name: id
      *         in: path
-     *         description: Id of event
+     *         description: Id of ticket
      *         required: true
      *         type: number
      *     responses:
      *       200:
-     *         description: One bytespace museum event.
+     *         description: One bytespace museum ticket.
      *         schema:
-     *           $ref: '#/definitions/Event'
+     *           $ref: '#/definitions/Ticket'
      */
     getOne(req, res, next) {
-        res.json(new EventModel());
+        res.json(new TicketModel());
     }
+
 }
