@@ -22,10 +22,10 @@ cd bytespace
 npm install
 ````
 
-### Start development server with hot reloading
+### Start webpack development server with hot reloading
 
 ````
-npm run dev
+npm run webpack-dev
 ````
 
 ### Testing
@@ -48,6 +48,14 @@ For linting we are using Eslint with Airbnb Eslint configuration
 
 ````
 npm run lint
+````
+
+### Development
+
+Start development server
+
+````
+npm run start-dev
 ````
 
 ### Production

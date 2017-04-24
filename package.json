@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "Bytespace Website",
   "scripts": {
-    "dev": "webpack-dev-server --watch --colors",
+    "webpack-dev": "webpack-dev-server --watch --colors",
     "build": "rimraf dist && NODE_ENV=production webpack --colors",
     "start": "NODE_ENV=production node ./server/bin/www",
+    "start-dev": "NODE_ENV=development node ./server/bin/www",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint src test webpack",
@@ -72,6 +73,7 @@
     "redux": "^3.5.2",
     "rimraf": "^2.6.1",
     "serve-favicon": "^2.4.2",
-    "serve-static": "^1.12.1"
+    "serve-static": "^1.12.1",
+    "swagger-jsdoc": "^1.9.2"
   }
 }
