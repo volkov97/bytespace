@@ -1,0 +1,68 @@
+@import '~normalize.css';
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+body {
+    font-family: RobotoLight, sans-serif;
+    font-size: 14px;
+    min-width: 320px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: circle;
+    margin: 0;
+    padding: 0;
+}
+
+strong, b, th {
+    font-family: RobotoBold;
+    font-style: normal;
+    font-weight: normal;
+}
+
+em, i {
+    font-family: RobotoItalic;
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-style: normal;
+    font-weight: normal;
+    font-family: RobotoBold;
+}
+
+.clearfix {
+    &:after {
+        content: " ";
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 25px;
+    
+    max-width: 980px;
+    
+    @include respond-to(md) {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+input, div {
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}

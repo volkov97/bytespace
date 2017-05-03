@@ -1,5 +1,5 @@
 // Module private variables
-const root = `${__dirname}/../../dist/`;
+const root = `${__dirname}/../../dist/client`;
 const indexFileName = 'index.html';
 
 module.exports = {
