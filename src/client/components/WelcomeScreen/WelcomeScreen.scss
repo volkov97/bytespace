@@ -1,5 +1,100 @@
 @import '../../../core/styles/variables';
 
 .WelcomeScreen {
-    background-color: greenyellow;
+    background-color: #fff;
+    background-image: url('../../../../static/images/backgrounds/cover.jpg');
+    background-size: cover;
+
+    &__content {
+
+    }
+
+    .cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        min-height: 100vh;
+
+        background-image: url('../../../../static/images/backgrounds/cover_comp.png');
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position-x: 85%;
+        background-position-y: 80%;
+
+        &__content {
+            width: 80%;
+            align-self: center;
+        }
+
+        &__title {
+            margin-bottom: 16px;
+
+            font-weight: bold;
+            color: #086B08;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            font-size: $font_size_extra;
+
+            &:before {
+                content: '';
+            }
+        }
+
+        &__title-text {
+            position: relative;
+            display: inline-block;
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+
+                width: 50%;
+                height: 20px;
+
+                background-color: transparent;
+                background-image: url('../../../../static/images/decorations/title_underline.png');
+                background-repeat: no-repeat;
+
+                background-size: 98% 10px;
+            }
+
+            &:before {
+                left: 0;
+                background-position: -2px 50%;
+            }
+
+            &:after {
+                right: 0;
+                transform: rotate(180deg);
+                background-position: 2px 50%;
+            }
+        }
+
+        &__caption {
+            margin-bottom: 22px;
+
+            text-transform: uppercase;
+            font-size: $font_size_xl;
+        }
+
+        &__enroll {
+        }
+
+        &__enroll-btn {
+            padding: 10px 25px;
+
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            border: none;
+            border-radius: 4px;
+            outline: none;
+
+            background-color: #1A1A1A;
+        }
+    }
 }

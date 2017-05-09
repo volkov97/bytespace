@@ -1,5 +1,76 @@
 @import '../../../core/styles/variables';
 
 .Home {
-    background-color: greenyellow;
+    $menu_margin: 20px;
+    $menu_width: 260px;
+    $menu_transition: left 0.5s ease-in-out;
+
+    #menuCheckbox {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+
+        &:checked ~ .Home__menuBtn { 
+            left: $menu_width + $menu_margin;
+        }
+
+        &:checked ~ .Home__content {
+            left: $menu_width;
+        }
+    }
+
+    &__menuBtn {
+        position: fixed;
+        top: $menu_margin;
+        left: $menu_margin;
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 0;
+        color: transparent;
+
+        transition: $menu_transition;
+
+        z-index: 999999;
+
+        cursor: pointer;
+
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+            fill: #353535;
+
+            transition: fill 0.4s ease-in-out;
+        }
+
+        &:hover svg {
+            fill: #000000;
+        }
+    }
+
+    &__content {
+        position: relative;
+        left: 0;
+
+        transition: $menu_transition;
+    }
+
+    &__menu {
+        float: left;
+
+        margin-left: -$menu_width;
+
+        min-height: 100vh;
+        width: $menu_width;
+
+        background: #4e4e4e url('../../../../static/images/backgrounds/panel.png');
+        background-attachment: fixed;
+        box-shadow: 0 0 90px 20px rgba(0,0,0,.5);
+    }
+
+    &__sections {
+    }
+
+    
 }

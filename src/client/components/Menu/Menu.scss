@@ -1,5 +1,54 @@
 @import '../../../core/styles/variables';
 
 .Menu {
-    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    .menu {
+        color: #fff;
+
+        &__title {
+            padding: 20px 0;
+
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+
+            &:before {
+                content: '<';
+            }
+
+            &:after {
+                content: '>';
+            }
+
+            &--after {
+                &:before {
+                    content: '</';
+                }
+            }
+        }
+
+        &__nav {
+        }
+
+        &__item-link {
+            display: block;
+            padding: 10px 0;
+
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            transition: background 0.3s;
+
+            &:hover { 
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+
 }
