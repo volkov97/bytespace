@@ -13,11 +13,11 @@ loaders.push({
 
 module.exports = {
   entry: {
-    admin: [
-      'react-hot-loader/patch',
-      './src/admin/index.jsx',
-      './src/admin/index.scss',
-    ],
+    // admin: [
+    //   'react-hot-loader/patch',
+    //   './src/admin/index.jsx',
+    //   './src/admin/index.scss',
+    // ],
     client: [
       'react-hot-loader/patch',
       './src/client/index.jsx',
@@ -30,7 +30,7 @@ module.exports = {
   },
   output: {
     publicPath: '/',
-    path: path.resolve('public'),
+    path: path.resolve('dist'),
     filename: './[name]/index.js',
     library: '[name]',
   },
@@ -62,17 +62,18 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'core',
-      chunks: ['admin', 'client'],
+      // chunks: ['admin', 'client'],
+      chunks: ['client'],
     }),
     new ExtractTextPlugin("[name]/index.css", {
       allChunks: true,
     }),
-    new HtmlWebpackPlugin({
-      template: './src/admin/index.html',
-      filename: './admin/index.html',
-      hash: true,
-      chunks: ['core', 'admin'],
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './src/admin/index.html',
+    //   filename: './admin/index.html',
+    //   hash: true,
+    //   chunks: ['core', 'admin'],
+    // }),
     new HtmlWebpackPlugin({
       template: './src/client/index.html',
       filename: './client/index.html',

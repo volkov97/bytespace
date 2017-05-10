@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "Bytespace Website",
   "scripts": {
-    "webpack-dev": "webpack-dev-server --watch --colors",
-    "build": "rimraf dist && NODE_ENV=production webpack --colors",
-    "start": "NODE_ENV=production node ./server/bin/www",
-    "start-dev": "NODE_ENV=development node ./server/bin/www",
+    "webpack-dev": "webpack-dev-server --watch --colors --progress",
+    "build": "rimraf dist && webpack --config webpack.production.config.js --progress --profile --colors",
+    "start": "set NODE_ENV=production && node ./server/bin/www",
+    "start-dev": "set NODE_ENV=development && node ./server/bin/www",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint src test webpack",
@@ -60,6 +60,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.15.0",
+    "webpack-cleanup-plugin": "^0.5.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
