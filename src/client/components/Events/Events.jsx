@@ -53,19 +53,21 @@ export default class Events extends React.Component {
                 <div className="Events__header">Запись на экскурсию</div>
                 <form action="/" className="Events__form form">
                     <div className="chosen">
+                        <div className="chosen__title">Ближайшее мероприятие</div>
                         <input type="hidden" name="clientOrder" defaultValue={selectedEvent.id}/>
                         <a className={`chosen__current ${this.state.isEventsSelectorOpen ? 'active' : ''}`} href="#"
                            onClick={this.handleClickEventSelector}>
                             <div className="chosen__option option">
                                 <div className="option__description">
-                                    <span>Экскурсия:</span>
+                                    <span>Экскурсия</span>
                                     <span className="option__dateTime">
                                         <span className="option__date">{selectedEvent.date}</span>
                                         <span className="option__time">{selectedEvent.time}</span>
                                     </span>
                                 </div>
-                                <div className="option__freePlaces">Свободные места:
-                                    <strong>{selectedEvent.places}</strong>
+                                <div className="option__freePlaces">
+                                    Свободные места:
+                                    <span className="quantity">{selectedEvent.places}</span>
                                 </div>
                             </div>
                         </a>
@@ -80,7 +82,9 @@ export default class Events extends React.Component {
                                         <span className="option__time">{event.time}</span>
                                     </span>
                                     </div>
-                                    <div className="option__freePlaces">Свободные места: <strong>{event.places}</strong>
+                                    <div className="option__freePlaces">
+                                        Свободные места:
+                                        <span className="quantity">{event.places}</span>
                                     </div>
                                 </a>
                             )}
@@ -94,7 +98,7 @@ export default class Events extends React.Component {
                     <textarea className="form__field form__field_textarea" name="clientNote" placeholder="Примечание"
                               rows="4"/>
                     <div className="form__btn-field">
-                        <button className="form__btn" type="submit">Записаться</button>
+                        <button className="form__btn" type="submit">Подтвердить</button>
                     </div>
                 </form>
             </div>
