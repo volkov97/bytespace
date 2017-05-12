@@ -1,5 +1,4 @@
-@include font-face('Roboto', '../../../static/fonts/Roboto/Roboto');
-@include font-face('Roboto', '../../../static/fonts/Roboto/RobotoBold', bold);
-@include font-face('RobotoLight', '../../../static/fonts/Roboto/RobotoLight');
-@include font-face('RobotoItalic', '../../../static/fonts/Roboto/RobotoItalic');
-@include font-face('ACLine', '../../../static/fonts/ACLine/ACLineRegular', normal, normal, (ttf, woff));
+@include font-face('ACLine', '../../../static/fonts/ACLine/ACLineRegular');
+@include font-face('OpenSans', '../../../static/fonts/OpenSans/OpenSans-Regular');
+@include font-face('OpenSans', '../../../static/fonts/OpenSans/OpenSans-Bold', bold);
+@include font-face('OpenSans', '../../../static/fonts/OpenSans/OpenSans-Light', 100);

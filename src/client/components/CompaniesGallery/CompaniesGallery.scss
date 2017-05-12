@@ -11,19 +11,19 @@
         margin-bottom: 40px;
         padding: 0 25%;
         
-        font-size: $font_size_m;
+        font-size: $font_size_xxl;
         text-align: center;
         text-transform: uppercase;
         line-height: 1.25em;
+        font-family: ACLine;
+        letter-spacing: 1px;
 
         @include respond-to(tablet) {
             padding: 0 100px;
-            font-size: $font_size_l;
         }
 
         @include respond-to(laptop) {
             padding: 0 120px;
-            font-size: $font_size_xl;
         }
     }
 
