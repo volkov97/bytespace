@@ -1,5 +1,97 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .Contacts {
-    background-color: greenyellow;
+    &__header {
+        padding: 30px;
+
+        background: #3f5525 url('../../../../static/images/backgrounds/contacts_header.png');
+
+        color: $white;
+        font-size: $font_size_xxl;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: ACLine;
+        letter-spacing: 1px;
+    }
+
+    &__content {
+        padding: 165px 0 30px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background: #fff url('../../../../static/images/backgrounds/contacts_background.jpg') top center no-repeat;
+        background-size: cover;
+
+        @include respond-to(laptop) {
+            flex-direction: row;
+            padding: 165px 10% 30px;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        @include respond-to(desktop) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__map {
+        width: 80%;
+        max-width: 750px;
+        height: 300px;
+        margin-top: 5px;
+
+        overflow: hidden;
+
+        box-shadow: 0px 0px 50px 22px rgba(178,188,188,1);
+
+        @include respond-to(laptop) {
+            order: 1;
+            width: 100%;
+            height: 550px;
+            margin: 15px;
+        }
+
+        .ymaps-2-1-50-events-pane {
+            box-shadow: inset 0px 0px 19px 17px rgba(178,188,188,1);
+        }
+    }
+
+    &__addresses {
+        @include respond-to(laptop) {
+            order: 2;
+            margin-top: 75px;
+        }
+    }
+
+    .address {
+        margin: 15px 0;
+        font-family: Roboto;
+
+        &__term {
+            font-size: $font_size_m;
+            line-height: 2em;
+            text-transform: uppercase;
+
+            @include respond-to(tablet) {
+                line-height: 3em;
+            }
+        }
+
+        &__description {
+            font-size: $font_size_m;
+            line-height: 1.75em;
+            color: $mainGreen;
+            font-weight: bold;
+        }
+
+        &__name {
+            margin-left: 5px;
+
+            color: $textColor;
+            font-weight: normal;
+        }
+    }
 }
