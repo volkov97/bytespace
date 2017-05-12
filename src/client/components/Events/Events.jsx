@@ -11,21 +11,16 @@ export default class Events extends React.Component {
 
         this.state = {
             isEventsSelectorOpen: false,
-            events: events.map((event, index) => {
-                if (index === 0) {
-                    return {...event, selected: true}
-                } else {
-                    return {...event, selected: false}
-                }
-            }),
+            events: events.map((event, index) => { return { ...event, selected: !!!index } })
         };
 
         this.handleClickEventSelector = this.handleClickEventSelector.bind(this);
         this.handleClickEventOption = this.handleClickEventOption.bind(this);
     }
 
-    handleClickEventSelector = (e) => {
+    handleClickEventSelector = e => {
         e.preventDefault();
+
         this.setState(_ => ({
             isEventsSelectorOpen: !_.isEventsSelectorOpen
         }));
@@ -33,14 +28,9 @@ export default class Events extends React.Component {
 
     handleClickEventOption = (e, selectedId) => {
         e.preventDefault();
+
         this.setState(_ => ({
-            events: _.events.map(event => {
-                if (event.id === selectedId) {
-                    return {...event, selected: true}
-                } else {
-                    return {...event, selected: false}
-                }
-            }),
+            events: _.events.map(event => { return {...event, selected: event.id === selectedId } }),
             isEventsSelectorOpen: false
         }));
     };
@@ -52,7 +42,7 @@ export default class Events extends React.Component {
             <div className="Events">
                 <div className="Events__header">Запись на экскурсию</div>
                 <form action="/" className="Events__form form">
-                    <div className="chosen">
+                    <div className="form__chosen chosen">
                         <div className="chosen__title">Ближайшее мероприятие</div>
                         <input type="hidden" name="clientOrder" defaultValue={selectedEvent.id}/>
                         <a className={`chosen__current ${this.state.isEventsSelectorOpen ? 'active' : ''}`} href="#"
@@ -76,7 +66,7 @@ export default class Events extends React.Component {
                                 <a className="chosen__option option" href="#" key={index}
                                    onClick={_ => this.handleClickEventOption(_, event.id)}>
                                     <div className="option__description">
-                                        <span>Экскурсия:</span>
+                                        <span>Экскурсия</span>
                                         <span className="option__dateTime">
                                         <span className="option__date">{event.date}</span>
                                         <span className="option__time">{event.time}</span>
@@ -91,11 +81,11 @@ export default class Events extends React.Component {
                         </div>
                     </div>
                     <div className="form__moreLink">
-                        <a href="#">Подробнее об экскурсиях</a>
+                        <a href="#" target="_blank">Подробнее об экскурсиях</a>
                     </div>
                     <input className="form__field" type="text" name="clientName" placeholder="Имя"/>
                     <input className="form__field" type="text" name="clientEmail" placeholder="Email"/>
-                    <textarea className="form__field form__field_textarea" name="clientNote" placeholder="Примечание"
+                    <textarea className="form__field form__field-textarea" name="clientNote" placeholder="Примечание"
                               rows="4"/>
                     <div className="form__btn-field">
                         <button className="form__btn" type="submit">Подтвердить</button>
