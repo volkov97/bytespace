@@ -60,8 +60,15 @@
     }
 
     &__addresses {
+        @include respond-to(tablet) {
+            display: flex;
+            justify-content: center;
+        }
+
         @include respond-to(laptop) {
+            display: block;
             order: 2;
+
             margin-top: 75px;
         }
     }
@@ -69,6 +76,14 @@
     .address {
         margin: 15px 0;
         font-family: Roboto;
+
+        @include respond-to(tablet) {
+            margin: 15px;
+        }
+
+        @include respond-to(laptop) {
+            margin: 15px 0;
+        }
 
         &__term {
             font-size: $font_size_m;
