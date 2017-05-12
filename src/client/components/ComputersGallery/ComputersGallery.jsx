@@ -23,7 +23,7 @@ export default class ComputersGallery extends React.Component {
         };
     }
 
-    render() {
+    render() { 
         return (
             <div className="ComputersGallery">
                 <div className="ComputersGallery__header">
