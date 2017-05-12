@@ -1,5 +1,100 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .Footer {
-    background-color: greenyellow;
+    padding: 40px 0 0;
+    text-align: center;
+    background: $minorColor;
+
+    @include respond-to(tablet) {
+        padding: 40px 10% 0;
+    }
+
+    @include respond-to(laptop) {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer {
+        color: $mainGreen;
+        line-height: 1.25em;
+        padding: 0 20px 200px;
+        background: transparent url('../../../../static/images/elements/vinyl-7.png') no-repeat center;
+        background-position-y: 100%;
+        background-size: auto 180px;
+
+        @include respond-to(laptop) {
+            padding: 0 20px 300px;
+            background-size: auto 280px;
+        }
+
+        @include respond-to(desktop) {
+            padding: 0 20px 400px;
+            background-size: auto 380px;
+        }
+
+        &__title {
+            font-size: $font_size_m;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            @include respond-to(desktop) {
+
+                font-size: $font_size_m;
+            }
+        }
+
+        &__link {
+            position: relative;
+            font-size: $font_size_s;
+            margin-top: 30px;
+            a {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: -5px;
+                    background: #ffffff url('../../../../static/images/svg/icon.svg') center no-repeat;
+                    background-size: 25px;
+                    height: 25px;
+                    width: 25px;
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        &__logo {
+            text-transform: uppercase;
+            position: relative;
+            font-family: ACLine;
+            margin-top: 30px;
+            font-size: $font_size_xxl;
+            padding: 0 25%;
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                margin-top: -5px;
+                width: 25%;
+                height: 10px;
+                background: transparent url('../../../../static/images/decorations/title_underline.png') no-repeat;
+                background-size: 98% 10px;
+
+                @include respond-to(tablet) {
+                    width: 100px;
+                }
+            }
+
+            &:before {
+                left: 0;
+            }
+
+            &:after {
+                right: 0;
+                transform: rotate(180deg);
+            }
+        }
+    }
 }

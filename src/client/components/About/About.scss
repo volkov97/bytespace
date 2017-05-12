@@ -1,5 +1,46 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .About {
-    background-color: greenyellow;
+
+    @include respond-to(laptop) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__header {
+        padding: 30px;
+
+        background: #3f5525 url('../../../../static/images/backgrounds/contacts_header.png');
+
+        color: $white;
+        font-size: $font_size_xxl;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: ACLine;
+        letter-spacing: 1px;
+    }
+
+    &__content {
+        padding-top: 40px;
+        padding-bottom: 600px;
+
+        background-color: #f0f0ef;
+        background-image: url('../../../../static/images/backgrounds/about_background.jpg');
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+
+        @include respond-to(laptop) {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__description {
+
+    }
 }
