@@ -5,8 +5,10 @@
   "scripts": {
     "webpack-dev": "webpack-dev-server --watch --colors --progress",
     "build": "rimraf dist && webpack --config webpack.production.config.js --progress --profile --colors",
-    "start": "set NODE_ENV=production && node ./server/bin/www",
-    "start-dev": "set NODE_ENV=development && node ./server/bin/www",
+    "start": "export NODE_ENV=production && node ./server/bin/www",
+    "start--windows": "set NODE_ENV=production && node ./server/bin/www",
+    "start-dev": "export NODE_ENV=development && node ./server/bin/www",
+    "start-dev--windows": "set NODE_ENV=development && node ./server/bin/www",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint src test webpack",
@@ -81,6 +83,7 @@
     "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.1",
     "serve-favicon": "^2.4.2",
+    "serve-index": "^1.8.0",
     "serve-static": "^1.12.1",
     "swagger-jsdoc": "^1.9.2",
     "universal-cookie": "^2.0.5"

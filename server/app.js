@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const serveIndex = require('serve-index');
 
 const app = express();
 
@@ -18,6 +19,9 @@ if (process.env.NODE_ENV == 'development') {
 
   // serve swagger ui
   app.use(express.static(path.join(__dirname, '../docs')));
+
+  // add design folder to interface
+  app.use('/design-docs', serveIndex(path.join(__dirname, '../docs/design-docs'), {'icons': true}));
 }
 
 // uncomment after placing your favicon in /public

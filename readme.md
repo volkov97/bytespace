@@ -58,6 +58,12 @@ Start development server
 npm run start-dev
 ````
 
+for Windows
+
+````
+npm run start-dev--windows
+````
+
 ### Production
 
 Build for production
@@ -70,6 +76,12 @@ Start production server
 
 ````
 npm run start
+````
+
+for Windows
+
+````
+npm run start--windows
 ````
 
 ### Contributing
