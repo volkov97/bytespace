@@ -1,5 +1,95 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .CompaniesGallery {
-    background-color: greenyellow;
+    padding: 0 0 120px;
+    background-color: #d4d0d4;
+
+    &__header {
+        position: relative;
+
+        margin-bottom: 40px;
+        padding: 0 25%;
+        
+        font-size: $font_size_m;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.25em;
+
+        @include respond-to(tablet) {
+            padding: 0 100px;
+            font-size: $font_size_l;
+        }
+
+        @include respond-to(laptop) {
+            padding: 0 120px;
+            font-size: $font_size_xl;
+        }
+    }
+
+    .gallery {
+        position: relative;
+        margin: 0 auto;
+        padding: 50px 120px 50px 50px;
+        max-width: 400px;
+
+        background-color: transparent;
+        background-image: url('../../../../static/images/elements/tv.png');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 280px 200px;
+
+        @include respond-to(tablet) {
+            padding: 50px 140px 50px 40px;
+            background-size: 400px 200px;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 116px;
+        }
+
+        &__img {
+            margin: 0 auto;
+
+            vertical-align: middle;
+
+            max-width: 120px;
+            max-height: 116px;
+
+            @include respond-to(tablet) {
+                max-width: 220px;
+            }
+        }
+
+        &:before, &:after {
+            @include respond-to(laptop) {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 205px;
+                height: 230px;
+            }
+        }
+
+        &:before {
+            @include respond-to(laptop) {
+                top: -80px;
+                left: 110%;
+                background: transparent url('../../../../static/images/elements/joystick2.png') no-repeat;
+            }
+        }
+
+        &:after {
+            @include respond-to(laptop) {
+                top: 80px;
+                right: 110%;
+                background: transparent url('../../../../static/images/elements/joystick1.png') no-repeat 0 0;
+            }
+        }
+    }
 }
