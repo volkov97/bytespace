@@ -4,7 +4,7 @@
 .Events {
   background: #fff url('../../../../static/images/backgrounds/cover.jpg') 50% 25%;
   background-size: cover;
-  padding: 80px 10%;
+  padding: 80px 0;
 
   @include respond-to(tablet) {
     padding: 80px 10%;
@@ -21,19 +21,17 @@
   &__header {
     position: relative;
     padding: 0 25%;
-    font-size: $font_size_m;
     text-align: center;
     text-transform: uppercase;
     color: $mainGreen;
-    line-height: 1.25em;
+    font-size: $font_size_xxl;
+    font-family: ACLine;
 
     @include respond-to(tablet) {
-      font-size: $font_size_l;
       padding: 0 100px;
     }
 
     @include respond-to(laptop) {
-      font-size: $font_size_xl;
       padding: 0 120px;
     }
 
@@ -63,10 +61,7 @@
   }
 
   &__form, .form {
-
-    @include respond-to(tablet) {
-      padding: 0;
-    }
+    padding: 0 10%;
 
     @include respond-to(laptop) {
       padding: 0;
@@ -257,6 +252,8 @@
       color: #fff;
       letter-spacing: 1px;
       text-transform: uppercase;
+      font-family: ACLine;
+      font-size: $font_size_l;
 
       border: none;
       border-radius: 4px;

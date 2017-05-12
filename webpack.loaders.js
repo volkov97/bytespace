@@ -5,11 +5,6 @@ module.exports = [
     loader: "babel"
   },
   {
-    test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-    exclude: /(bower_components)/,
-    loader: "file?name=[1]&regExp=static(?:\\\\|/)(.*)"
-  },
-  {
     test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
     exclude: /(bower_components)/,
     loader: "url?name=[1]&regExp=static(?:\\\\|/)(.*)&limit=5000"
