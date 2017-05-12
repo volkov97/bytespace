@@ -14,8 +14,8 @@
             left: $menu_width + $menu_margin;
         }
 
-        &:checked ~ .Home__content {
-            left: $menu_width;
+        &:checked ~ .Home__menu {
+            left: 0;
         }
     }
 
@@ -49,27 +49,25 @@
         }
     }
 
-    &__content {
-        position: relative;
-        left: 0;
-
-        transition: $menu_transition;
+    &__sections {
     }
 
     &__menu {
-        float: left;
+        position: fixed;
 
-        margin-left: -$menu_width;
+        top: 0;
+        bottom: 0;
+        left: -$menu_width;
 
         min-height: 100vh;
         width: $menu_width;
 
-        background: #4e4e4e url('../../../../static/images/backgrounds/panel.png');
-        background-attachment: fixed;
-        box-shadow: 0 0 90px 20px rgba(0,0,0,.5);
-    }
+        transition: $menu_transition;
 
-    &__sections {
+        z-index: 999999;
+
+        background: #4e4e4e url('../../../../static/images/backgrounds/panel.png');
+        box-shadow: 0 0 90px 20px rgba(0,0,0,.5);
     }
 
     
