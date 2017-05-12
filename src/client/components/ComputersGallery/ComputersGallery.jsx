@@ -3,6 +3,8 @@ import Slider from 'react-slick';
 
 import './ComputersGallery.scss';
 
+import config from './ComputersGallery.config';
+
 const gallery = [
     require('../../../../static/images/computers-gallery/comp1.png'),
     require('../../../../static/images/computers-gallery/comp2.png'),
@@ -17,33 +19,8 @@ export default class ComputersGallery extends React.Component {
         super(props);
 
         this.state = {
-            settings: {
-                arrows: false,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                speed: 500,
-                slidesToShow: 3,
-                useCSS: true,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: { slidesToShow: 3 }
-                    },
-                    {
-                        breakpoint: 900,
-                        settings: { slidesToShow: 2 }
-                    },
-                    {
-                        breakpoint: 620,
-                        settings: { slidesToShow: 1 }
-                    }
-                ]
-            }
+            settings: config.settings
         };
-    }
-
-    componentDidMount() {
     }
 
     render() {

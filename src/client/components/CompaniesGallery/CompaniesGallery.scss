@@ -33,7 +33,10 @@
         padding: 50px 120px 50px 50px;
         max-width: 400px;
 
-        background: transparent url('../../../../static/images/elements/tv.png') no-repeat 50% 50%;
+        background-color: transparent;
+        background-image: url('../../../../static/images/elements/tv.png');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
         background-size: 280px 200px;
 
         @include respond-to(tablet) {

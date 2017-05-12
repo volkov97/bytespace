@@ -3,6 +3,8 @@ import Slider from 'react-slick';
 
 import './CompaniesGallery.scss';
 
+import config from './CompaniesGallery.config';
+
 const gallery = [
     require('../../../../static/images/companies-gallery/amiga.png'),
     require('../../../../static/images/companies-gallery/apple.png'),
@@ -24,19 +26,8 @@ export default class CompaniesGallery extends React.Component {
         super(props);
 
         this.state = {
-            settings: {
-                arrows: false,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 1000,
-                speed: 500,
-                slidesToShow: 1,
-                useCSS: true
-            }
+            settings: config.settings
         };
-    }
-
-    componentDidMount() {
     }
 
     render() {
