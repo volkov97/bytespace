@@ -1,5 +1,74 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .ComputersGallery {
-    background-color: greenyellow;
+    padding: 60px 0;
+    background-color: #d4d0d4;
+
+    &__header {
+        position: relative;
+
+        margin-bottom: 40px;
+        padding: 0 25%;
+        
+        font-size: $font_size_m;
+        text-align: center;
+        text-transform: uppercase;
+        color: $mainGreen;
+        line-height: 1.25em;
+
+        @include respond-to(tablet) {
+            padding: 0 100px;
+            font-size: $font_size_l;
+        }
+
+        @include respond-to(laptop) {
+            padding: 0 120px;
+            font-size: $font_size_xl;
+        }
+    }
+
+    &__header-text {
+        position: relative;
+        display: inline-block;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            margin-top: -5px;
+            width: 100px;
+            height: 10px;
+            background: transparent url('../../../../static/images/decorations/title_underline.png') no-repeat;
+            background-size: 98% 10px;
+        }
+
+        &:before {
+            right: 110%;
+        }
+
+        &:after {
+            left: 110%;
+            transform: rotate(180deg);
+        }
+    }
+
+    .gallery {
+        padding: 20px 0;
+
+        background-color: #706561;
+
+        &__item {
+            display: inline-block;
+            padding: 20px 0;
+        }
+
+        &__img {
+            margin: 0 auto;
+            max-height: 200px;
+
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+    }
 }
