@@ -6,10 +6,6 @@
     text-align: center;
     background: $minorColor;
 
-    @include respond-to(tablet) {
-        padding: 40px 10% 0;
-    }
-
     @include respond-to(laptop) {
         text-align: center;
         display: flex;
@@ -18,21 +14,22 @@
     }
 
     .footer {
+        width: 100%;
         color: $mainGreen;
         line-height: 1.25em;
-        padding: 0 20px 200px;
+        padding-bottom: 200px;
         background: transparent url('../../../../static/images/elements/vinyl-7.png') no-repeat center;
         background-position-y: 100%;
-        background-size: auto 180px;
+        background-size: auto 170px;
 
         @include respond-to(laptop) {
-            padding: 0 20px 300px;
-            background-size: auto 280px;
+            padding-bottom: 300px;
+            background-size: auto 270px;
         }
 
         @include respond-to(desktop) {
-            padding: 0 20px 400px;
-            background-size: auto 380px;
+            padding-bottom: 400px;
+            background-size: auto 370px;
         }
 
         &__title {
@@ -68,9 +65,18 @@
             text-transform: uppercase;
             position: relative;
             font-family: ACLine;
+            display: inline-block;
+            padding: 0 25%;
             margin-top: 30px;
             font-size: $font_size_xxl;
-            padding: 0 25%;
+
+            @include respond-to(tablet) {
+                padding: 0 100px;
+            }
+
+            @include respond-to(desktop) {
+                padding: 0 120px;
+            }
 
             &:before, &:after {
                 content: '';
