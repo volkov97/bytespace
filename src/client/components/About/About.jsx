@@ -4,7 +4,8 @@ import './About.scss';
 
 const decorations = {
     diskette: require('../../../../static/images/elements/diskette-2.png'),
-    cassette: require('../../../../static/images/elements/cassette-2.png')
+    cassette: require('../../../../static/images/elements/cassette-2.png'),
+    bg: require('../../../../static/images/backgrounds/aboutus-bg-small.jpg')
 };
 
 export default class About extends React.Component {
@@ -34,6 +35,9 @@ export default class About extends React.Component {
                         <p className="about-us__p">
                             Друзья! В прошлом году мы провели крупнейшую и самую известную в Беларуси благотворительную выставку ретро-компьютеров, посвященную 50-летию МРТИ-БГУИР
                         </p>
+                    </div>
+                    <div className="about-us__image-wrap">
+                        <img src={decorations.bg} alt="О нас" className="about-us__image"/>
                     </div>
                 </div>
             </div>

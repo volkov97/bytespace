@@ -17,38 +17,67 @@
     }
 
     &__content {
-        min-height: 660px;
+        min-height: 400px;
 
-        background-color: #f0f0ef;
-        background-image: url('../../../../static/images/backgrounds/aboutus-bg.jpg');
-        background-size: cover;
-        background-position: 50% 0%;
-        background-repeat: no-repeat;
+        background-color: #d4d0d4;
+
+        @include respond-to(desktop) {
+            min-height: 660px;
+
+            background-color: #d4d0d4;
+            background-image: url('../../../../static/images/backgrounds/aboutus-bg.jpg');
+            background-size: cover;
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+
     }
 
     .about-us {
-        padding: 40px 10% 40px 50%;
-
+        padding: 40px 0 20px;
+        
         font-size: $font_size_xm;
         line-height: 1.25em;
 
+        @include respond-to(desktop) {
+            padding: 40px 5% 40px 50%;
+        }
+
         &__p {
             margin: 0 0 20px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         &__img {
-            box-sizing: content-box;
-            width: 150px;
-            height: 150px;
+            display: none;
 
-            &_left {
-                float: left;
-                padding: 0 40px 10px 0;
+            @include respond-to(desktop) {
+                display: inline-block;
+                box-sizing: content-box;
+                width: 150px;
+                height: 150px;
+
+                &_left {
+                    float: left;
+                    padding: 0 40px 10px 0;
+                }
+
+                &_right {
+                    float: right;
+                    padding: 0 0 10px 20px;
+                }
+            }
+        }
+
+        &__image-wrap {
+
+            @include respond-to(desktop) {
+                display: none;
             }
 
-            &_right {
-                float: right;
-                padding: 0 0 10px 20px;
+            .about-us__image {
+                max-width: 100%;
             }
         }
     }
