@@ -1,5 +1,55 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .About {
-    background-color: greenyellow;
+
+    &__header {
+        padding: 30px;
+
+        background: #3f5525 url('../../../../static/images/backgrounds/contacts_header.png');
+
+        color: $white;
+        font-size: $font_size_xxl;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: ACLine;
+        letter-spacing: 1px;
+    }
+
+    &__content {
+        min-height: 660px;
+
+        background-color: #f0f0ef;
+        background-image: url('../../../../static/images/backgrounds/aboutus-bg.jpg');
+        background-size: cover;
+        background-position: 50% 0%;
+        background-repeat: no-repeat;
+    }
+
+    .about-us {
+        padding: 40px 10% 40px 50%;
+
+        font-size: $font_size_xm;
+        line-height: 1.25em;
+
+        &__p {
+            margin: 0 0 20px;
+        }
+
+        &__img {
+            box-sizing: content-box;
+            width: 150px;
+            height: 150px;
+
+            &_left {
+                float: left;
+                padding: 0 40px 10px 0;
+            }
+
+            &_right {
+                float: right;
+                padding: 0 0 10px 20px;
+            }
+        }
+    }
 }

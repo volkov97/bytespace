@@ -1,5 +1,127 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .Footer {
-    background-color: greenyellow;
+
+    .footer-info {
+        padding: 40px 0 160px;
+
+        text-align: center;
+
+        background-color: #d4d0d4;
+        background-image: url('../../../../static/images/backgrounds/vinyl-7.png');
+        background-repeat: no-repeat;
+        background-position: 50% 100%;
+
+        background-size: 300px auto;
+
+        @include respond-to(tablet) {
+            padding-bottom: 230px;
+            background-size: 440px auto;
+        }
+
+        @include respond-to(laptop) {
+            padding-bottom: 400px;
+            background-size: 760px auto;
+        }
+
+        @include respond-to(desktop) {
+            padding-bottom: 420px;
+            background-size: 820px auto;
+        }
+        
+        &__title {
+            margin-bottom: 20px;
+
+            font-family: ACLine;
+            font-size: $font_size_l;
+
+            @include respond-to(tablet) {
+                font-size: $font_size_xl;
+            }
+        }
+
+        &__news-link {
+            margin-bottom: 40px;
+        }
+
+        &__link {
+            position: relative;
+
+            font-family: ACLine;
+            font-weight: bold;
+
+            @include respond-to(tablet) {
+                font-size: $font_size_l;
+            }
+
+            &:after {
+                position: absolute;
+                right: -30px;
+                top: -5px;
+
+                content: '';
+                display: block;
+                height: 20px;
+                width: 20px;
+
+                background-color: transparent;
+                background-image: url('../../../../static/images/svg/icon.svg');
+                background-repeat: no-repeat;
+                background-size: 20px;
+
+                @include respond-to(tablet) {
+                    top: -2px;
+                }
+            }
+        }
+
+        &__sign {
+            position: relative;
+
+            margin-bottom: 40px;
+            padding: 0 25%;
+            
+            font-size: $font_size_xxl;
+            text-align: center;
+            text-transform: uppercase;
+            color: $mainGreen;
+            line-height: 1.25em;
+            font-family: ACLine;
+            letter-spacing: 1px;
+
+            @include respond-to(tablet) {
+                padding: 0 100px;
+            }
+
+            @include respond-to(laptop) {
+                padding: 0 120px;
+            }
+        }
+
+        &__sign-text {
+            position: relative;
+            display: inline-block;
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                margin-top: -8px;
+                width: 100px;
+                height: 10px;
+                background: transparent url('../../../../static/images/decorations/title_underline.png') no-repeat;
+                background-size: 98% 10px;
+            }
+
+            &:before {
+                right: 110%;
+            }
+
+            &:after {
+                left: 110%;
+                transform: rotate(180deg);
+            }
+        }
+    }
 }
