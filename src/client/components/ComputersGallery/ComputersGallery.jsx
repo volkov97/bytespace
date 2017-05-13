@@ -25,7 +25,7 @@ export default class ComputersGallery extends React.Component {
 
     render() { 
         return (
-            <div className="ComputersGallery">
+            <div className="ComputersGallery" id="exhibits">
                 <div className="ComputersGallery__header">
                     <div className="ComputersGallery__header-text">Галерея</div>
                 </div>

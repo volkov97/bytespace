@@ -10,7 +10,7 @@ export default class Contacts extends React.Component {
 
     render() {
         return (
-            <div className="Contacts">
+            <div className="Contacts" id="contacts">
                 <div className="Contacts__header">Контакты</div>
                 <div className="Contacts__content">
                     <div className="Contacts__addresses">

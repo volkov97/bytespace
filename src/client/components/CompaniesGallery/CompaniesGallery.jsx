@@ -32,7 +32,7 @@ export default class CompaniesGallery extends React.Component {
 
     render() {
         return (
-            <div className="CompaniesGallery">
+            <div className="CompaniesGallery" id="brands">
                 <div className="CompaniesGallery__header">
                     В главных ролях
                 </div>
