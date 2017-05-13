@@ -11,13 +11,19 @@ export default class Footer extends React.Component {
         return (
             <div className="Footer">
                 <div className="Footer__content footer">
-                    <div className="footer__title">
-                        Будем рады видеть вас в нашем музее!
+                    <div className="footer-info">
+                        <div className="footer-info__title">
+                            Будем рады видеть вас в нашем музее!
+                        </div>
+                        <div className="footer-info__news-link">
+                            <a href="#" className="footer-info__link" target="_blank">
+                                Следите за новостями
+                            </a>
+                        </div>
+                        <div className="footer-info__sign">
+                            <div className="footer-info__sign-text">Bytespace</div>
+                        </div>
                     </div>
-                    <div className="footer__link">
-                        <a href="#">Следите за новостями</a>
-                    </div>
-                    <div className="footer__logo">Bytespace</div>
                 </div>
             </div>
         );

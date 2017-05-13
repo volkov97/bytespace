@@ -2,103 +2,124 @@
 @import '../../../core/styles/mixins';
 
 .Footer {
-    padding: 40px 0 0;
-    text-align: center;
-    background: $minorColor;
 
-    @include respond-to(laptop) {
+    .footer-info {
+        padding: 40px 0 160px;
+
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .footer {
-        width: 100%;
-        color: $mainGreen;
-        line-height: 1.25em;
-        padding-bottom: 200px;
-        background: transparent url('../../../../static/images/elements/vinyl-7.png') no-repeat center;
-        background-position-y: 100%;
-        background-size: auto 170px;
+        background-color: #d4d0d4;
+        background-image: url('../../../../static/images/elements/vinyl-7.png');
+        background-repeat: no-repeat;
+        background-position: 50% 100%;
+
+        background-size: 300px auto;
+
+        @include respond-to(tablet) {
+            padding-bottom: 230px;
+            background-size: 440px auto;
+        }
 
         @include respond-to(laptop) {
-            padding-bottom: 300px;
-            background-size: auto 270px;
+            padding-bottom: 400px;
+            background-size: 760px auto;
         }
 
         @include respond-to(desktop) {
-            padding-bottom: 400px;
-            background-size: auto 370px;
+            padding-bottom: 420px;
+            background-size: 820px auto;
+        }
+        
+        &__title {
+            margin-bottom: 20px;
+
+            font-family: ACLine;
+            font-size: $font_size_l;
+
+            @include respond-to(tablet) {
+                font-size: $font_size_xl;
+            }
         }
 
-        &__title {
-            font-size: $font_size_m;
-            text-transform: uppercase;
-            font-weight: bold;
-
-            @include respond-to(desktop) {
-
-                font-size: $font_size_m;
-            }
+        &__news-link {
+            margin-bottom: 40px;
         }
 
         &__link {
             position: relative;
-            font-size: $font_size_s;
-            margin-top: 30px;
-            a {
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: -5px;
-                    background: #ffffff url('../../../../static/images/svg/icon.svg') center no-repeat;
-                    background-size: 25px;
-                    height: 25px;
-                    width: 25px;
-                    margin-left: 10px;
+
+            font-family: ACLine;
+            font-weight: bold;
+
+            @include respond-to(tablet) {
+                font-size: $font_size_l;
+            }
+
+            &:after {
+                position: absolute;
+                right: -30px;
+                top: -5px;
+
+                content: '';
+                display: block;
+                height: 20px;
+                width: 20px;
+
+                background-color: transparent;
+                background-image: url('../../../../static/images/svg/icon.svg');
+                background-repeat: no-repeat;
+                background-size: 20px;
+
+                @include respond-to(tablet) {
+                    top: -2px;
                 }
             }
         }
 
-        &__logo {
-            text-transform: uppercase;
+        &__sign {
             position: relative;
-            font-family: ACLine;
-            display: inline-block;
+
+            margin-bottom: 40px;
             padding: 0 25%;
-            margin-top: 30px;
+            
             font-size: $font_size_xxl;
+            text-align: center;
+            text-transform: uppercase;
+            color: $mainGreen;
+            line-height: 1.25em;
+            font-family: ACLine;
+            letter-spacing: 1px;
 
             @include respond-to(tablet) {
                 padding: 0 100px;
             }
 
-            @include respond-to(desktop) {
+            @include respond-to(laptop) {
                 padding: 0 120px;
             }
+        }
+
+        &__sign-text {
+            position: relative;
+            display: inline-block;
 
             &:before, &:after {
                 content: '';
                 position: absolute;
                 top: 50%;
-                margin-top: -5px;
-                width: 25%;
+                margin-top: -8px;
+                width: 100px;
                 height: 10px;
                 background: transparent url('../../../../static/images/decorations/title_underline.png') no-repeat;
                 background-size: 98% 10px;
-
-                @include respond-to(tablet) {
-                    width: 100px;
-                }
             }
 
             &:before {
-                left: 0;
+                right: 110%;
             }
 
             &:after {
-                right: 0;
+                left: 110%;
                 transform: rotate(180deg);
             }
         }
