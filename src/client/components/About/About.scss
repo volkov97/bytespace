@@ -3,12 +3,6 @@
 
 .About {
 
-    @include respond-to(laptop) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     &__header {
         padding: 30px;
 
@@ -23,24 +17,39 @@
     }
 
     &__content {
-        padding-top: 40px;
-        padding-bottom: 600px;
+        min-height: 660px;
 
         background-color: #f0f0ef;
-        background-image: url('../../../../static/images/backgrounds/about_background.jpg');
+        background-image: url('../../../../static/images/backgrounds/aboutus-bg.jpg');
         background-size: cover;
-        background-position: 50% 50%;
+        background-position: 50% 0%;
         background-repeat: no-repeat;
-
-        @include respond-to(laptop) {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
     }
 
-    &__description {
+    .about-us {
+        padding: 40px 10% 40px 50%;
 
+        font-size: $font_size_xm;
+        line-height: 1.25em;
+
+        &__p {
+            margin: 0 0 20px;
+        }
+
+        &__img {
+            box-sizing: content-box;
+            width: 150px;
+            height: 150px;
+
+            &_left {
+                float: left;
+                padding: 0 40px 10px 0;
+            }
+
+            &_right {
+                float: right;
+                padding: 0 0 10px 20px;
+            }
+        }
     }
 }
