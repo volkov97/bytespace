@@ -44,7 +44,7 @@ export default class Reviews extends React.Component {
 
     render() {
         return (
-            <div className="Reviews">
+            <div className="Reviews" id="reviews">
                 <div className="Reviews__header">
                     Отзывы
                 </div>

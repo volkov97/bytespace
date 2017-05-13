@@ -14,7 +14,7 @@ export default class About extends React.Component {
 
     render() {
         return (
-            <div className="About">
+            <div className="About" id="about">
                 <div className="About__header">
                     О музее
                 </div>

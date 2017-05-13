@@ -39,7 +39,7 @@ export default class Events extends React.Component {
         const selectedEvent = this.state.events.find(_ => _.selected === true);
 
         return (
-            <div className="Events">
+            <div className="Events" id="events">
                 <div className="Events__header">Запись на экскурсию</div>
                 <form action="/" className="Events__form form">
                     <div className="form__chosen chosen">
