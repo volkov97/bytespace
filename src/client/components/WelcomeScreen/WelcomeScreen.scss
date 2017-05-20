@@ -1,9 +1,18 @@
 @import '../../../core/styles/variables';
+@import '../../../core/styles/mixins';
 
 .WelcomeScreen {
     background-color: #fff;
-    background-image: url('../../../../static/images/backgrounds/cover.jpg');
+    background-image: url('../../../../static/images/backgrounds/cover_comp_mobile.jpg');
     background-size: cover;
+    background-position-y: 80%;
+    background-repeat: no-repeat;
+
+    @include respond-to(tablet) {
+        background-image: url('../../../../static/images/backgrounds/cover_comp.jpg');
+        background-size: auto 100%;
+        background-position-x: 45%;
+    }
 
     &__content {
 
@@ -12,19 +21,20 @@
     .cover {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-
         min-height: 100vh;
 
-        background-image: url('../../../../static/images/backgrounds/cover_comp.png');
-        background-repeat: no-repeat;
-        background-size: 50%;
-        background-position-x: 85%;
-        background-position-y: 80%;
+        @include respond-to(tablet) {
+            justify-content: center;
+        }
 
         &__content {
+            padding: 90px 0 0 20px;
             width: 80%;
             align-self: center;
+
+            @include respond-to(tablet) {
+                padding: 0;
+            }
         }
 
         &__title {
@@ -35,7 +45,11 @@
             letter-spacing: 2px;
             text-transform: uppercase;
 
-            font-size: $font_size_extra;
+            font-size: $font_size_xxl;
+
+            @include respond-to(tablet) {
+                font-size: $font_size_extra;
+            }
 
             &:before {
                 content: '';
@@ -74,23 +88,33 @@
         }
 
         &__caption {
-            margin-bottom: 22px;
+            margin-bottom: 10px;
 
             text-transform: uppercase;
-            font-size: $font_size_xl;
+            font-size: $font_size_m;
+
+            @include respond-to(tablet) {
+                font-size: $font_size_xl;
+                margin-bottom: 22px;
+            }
         }
 
         &__enroll {
         }
 
         &__enroll-btn {
-            padding: 10px 25px;
+            padding: 5px 15px;
 
             color: #fff;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-family: ACLine;
-            font-size: $font_size_l;
+            font-size: $font_size_m;
+
+            @include respond-to(tablet) {
+                padding: 10px 25px;
+                font-size: $font_size_l;
+            }
 
             border: none;
             border-radius: 4px;
