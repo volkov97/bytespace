@@ -1,6 +1,10 @@
 import React from 'react';
+import Scroll from 'react-scroll';
 
 import './WelcomeScreen.scss';
+import config from './../Menu/Menu.config';
+
+let scroller = Scroll.scroller;
 
 export default class WelcomeScreen extends React.Component {
 
@@ -19,7 +23,10 @@ export default class WelcomeScreen extends React.Component {
                             <div className="cover__caption">Музей ретрокомпьютеров</div>
 
                             <div className="cover__enroll">
-                                <button className="cover__enroll-btn">Записаться</button>
+                                <button className="cover__enroll-btn"
+                                        onClick={() => scroller.scrollTo('events', config.scrollOptions)}>
+                                    Записаться
+                                </button>
                             </div>
                         </div>
                     </div>
