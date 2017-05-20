@@ -30,7 +30,7 @@
     .gallery {
         position: relative;
         margin: 0 auto;
-        padding: 50px 120px 50px 50px;
+        padding: 50px 160px 50px 90px;
         max-width: 400px;
 
         background-color: transparent;
@@ -40,8 +40,16 @@
         background-size: 280px 200px;
 
         @include respond-to(tablet) {
-            padding: 50px 140px 50px 40px;
-            background-size: 400px 200px;
+            padding: 85px 140px 85px 40px;
+            background-size: 400px 268px;
+        }
+
+        .gradient {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+99&1+22,0+60 */
+            background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 99%); /* FF3.6-15 */
+            background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 22%,rgba(255,255,255,0) 60%,rgba(255,255,255,0) 99%); /* Chrome10-25,Safari5.1-6 */
+            background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 22%,rgba(255,255,255,0) 60%,rgba(255,255,255,0) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
         }
 
         &__item {
@@ -51,6 +59,10 @@
             justify-content: center;
 
             min-height: 116px;
+
+            @include respond-to(desktop) {
+                min-height: 156px;
+            }
         }
 
         &__img {

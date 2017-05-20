@@ -40,7 +40,7 @@ export default class CompaniesGallery extends React.Component {
                     <div className="gallery">
                         <Slider {...this.state.settings}>
                             {gallery.map((image, index) =>
-                                <div className="gallery__item" key={index}>
+                                <div className="gallery__item gradient" key={index}>
                                     <img src={image} alt="Company Gallery Item" className="gallery__img"/>
                                 </div>
                             )}
