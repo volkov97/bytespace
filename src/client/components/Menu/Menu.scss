@@ -3,8 +3,9 @@
 .Menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 
+    padding-top: 100px;
     min-height: 100vh;
 
     .menu {
@@ -17,20 +18,16 @@
             font-weight: bold;
             letter-spacing: 2px;
             text-align: center;
+        }
 
-            &:before {
-                content: '<';
-            }
+        &__logo {
+            margin-bottom: 50px;
+            padding-left: 65px;
+        }
 
-            &:after {
-                content: '>';
-            }
-
-            &--after {
-                &:before {
-                    content: '</';
-                }
-            }
+        &__logo-image {
+            width: 120px;
+            height: 120px;
         }
 
         &__nav {
@@ -38,11 +35,10 @@
 
         &__item-link {
             display: block;
-            padding: 10px 0;
+            padding: 10px 0 10px 65px;
 
             color: #fff;
             text-transform: uppercase;
-            text-align: center;
             transition: background 0.3s;
 
             &:hover { 

@@ -6,6 +6,7 @@ import './Menu.scss';
 import config from './Menu.config';
 
 let scroller = Scroll.scroller;
+let logo = require('../../../../static/images/elements/logo.jpg');
 
 export default class Home extends React.Component {
 
@@ -28,8 +29,8 @@ export default class Home extends React.Component {
             <div className="Menu">
                 <div className="Menu__content">
                     <div className="menu">
-                        <div className="menu__title menu__title--before">
-                            bytespace
+                        <div className="menu__logo">
+                            <img src={logo} alt="Logo" className="menu__logo-image"/>
                         </div>
                         <div className="menu__nav">
                             {this.state.menuItems.map((item, index) =>
@@ -38,9 +39,6 @@ export default class Home extends React.Component {
                                        className="menu__item-link">{item.text}</a>
                                 </div>
                             )}
-                        </div>
-                        <div className="menu__title menu__title--after">
-                            bytespace
                         </div>
                     </div>
                 </div>
