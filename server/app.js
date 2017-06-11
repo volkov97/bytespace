@@ -35,6 +35,7 @@ const options = { index: false };
 app.use(express.static(path.join(__dirname, '../dist'), options));
 
 app.use('/api', require('./routes/api'));
+app.use('/dashboard', require('./routes/dashboard'));
 app.use('/*', require('./routes/home'));
 
 // error handler
