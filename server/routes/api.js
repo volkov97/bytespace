@@ -11,9 +11,9 @@ router
 
     // Events API
     .get('/events', EventsController.getAll)
-    .get('/events/removeOne/:id', EventsController.removeOne)
     .get('/events/:id', EventsController.getOne)
-    .post('/events/addOne', EventsController.addOne)
-    .post('/events/updateOne/:id', EventsController.updateOne);
+    .post('/events', EventsController.addOne)
+    .put('/events/:id', EventsController.updateOne)
+    .delete('/events', EventsController.remove);
 
 module.exports = router;

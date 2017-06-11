@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {setPageTitle} from '../../../actions/interfaces';
+import {handleLoadingEvents, handleDeleteEvents} from '../../../actions/events';
 import EventsList from './EventsList';
 
 const mapStateToProps = (state) => {
@@ -11,6 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        handleLoadingEvents: bindActionCreators(handleLoadingEvents, dispatch),
+        handleDeleteEvents: bindActionCreators(handleDeleteEvents, dispatch),
         setPageTitle: bindActionCreators(setPageTitle, dispatch)
     }
 };

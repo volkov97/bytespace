@@ -1,12 +1,15 @@
 import * as actionTypes from '../actions-types/events';
 
 const initialState = {
-    data: [],
+    tableData: [],
+    tableFields: [],
+    data: false,
+    current: false,
     isLoading: false,
     error: false
 };
 
-export default function news(state = initialState, action) {
+export default function events(state = initialState, action) {
     switch (action.type) {
         case actionTypes.FETCH_EVENTS_REQUEST:
             return {
@@ -21,10 +24,82 @@ export default function news(state = initialState, action) {
                 isLoading: false
             };
 
+        case actionTypes.FETCH_CURRENT_EVENTS_SUCCESS:
+            return {
+                ...state,
+                current: state.data,
+                isLoading: false
+            };
+
         case actionTypes.FETCH_EVENTS_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                error: action.payload,
+            };
+
+        case actionTypes.SET_EVENTS_TABLE_DATA:
+            return {
+                ...state,
+                tableData: action.payload
+            };
+
+        case actionTypes.SET_EVENTS_TABLE_FIELDS:
+            return {
+                ...state,
+                tableFields: action.payload
+            };
+
+        case actionTypes.POST_EVENT_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            };
+
+        case actionTypes.POST_EVENT_SUCCESS:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                isLoading: false
+            };
+
+        case actionTypes.POST_EVENT_FAILURE:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                error: action.payload,
+            };
+
+        case actionTypes.PUT_EVENT_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            };
+
+        case actionTypes.PUT_EVENT_SUCCESS:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                isLoading: false
+            };
+
+        case actionTypes.PUT_EVENT_FAILURE:
+            return {
+                ...state,
+                tableData: initialState.tableData,
+                tableFields: initialState.tableFields,
+                error: action.payload,
+            };
+
+        case actionTypes.FLUSH_EVENT:
+            return {
+                ...state,
+                data: initialState.data,
+                error: initialState.error
             };
 
         default:

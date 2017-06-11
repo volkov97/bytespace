@@ -28,7 +28,7 @@ export default class EventList extends React.Component {
 
     componentWillMount() {
         this.props.setPageTitle('Список событий');
-        // !this.props.events.tableData.length ? this.props.handleLoadingEvents() : null;
+        !this.props.events.tableData.length ? this.props.handleLoadingEvents() : null;
     }
 
     render() {
