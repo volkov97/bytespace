@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const DashboardController = require('../controllers/dashboard');
+const SecureController = require('../controllers/secure');
 
-router.use(DashboardController.index);
+router.use(SecureController.checkCookiesToken, DashboardController.index);
 
 module.exports = router;
