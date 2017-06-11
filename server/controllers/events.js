@@ -1,52 +1,70 @@
+const Datastore = require('nedb');  
+const eventsDB = new Datastore({ filename: `${__dirname}/../database/events`, autoload: true });
 const EventModel = require('../models/event');
 
 module.exports = {
-    /**
-     * @swagger
-     * /events/:
-     *   get:
-     *     tags:
-     *       - Events
-     *     description: Get all museum events.
-     *     produces:
-     *       - application/json
-     *     responses:
-     *       200:
-     *         description: All bytespace museum events.
-     *         schema:
-     *           $ref: '#/definitions/Event'
-     */
+    // Get All Events
     getAll(req, res, next) {
-        res.json({
-            message: 'success',
-            data: [
-                { ev: 1 }, { ev: 2 }
-            ]
+        eventsDB.find({}, (err, docs) => {
+            res.json({
+                status: 'success',
+                data: docs
+            });
         });
     },
 
-    /**
-     * @swagger
-     * /events/{id}:
-     *   get:
-     *     tags:
-     *       - Events
-     *     description: Get one museum event.
-     *     produces:
-     *       - application/json
-     *     parameters:
-     *       - name: id
-     *         in: path
-     *         description: Id of event
-     *         required: true
-     *         type: number
-     *     responses:
-     *       200:
-     *         description: One bytespace museum event.
-     *         schema:
-     *           $ref: '#/definitions/Event'
-     */
+    // Get One Event
     getOne(req, res, next) {
-        res.json(new EventModel());
+        eventsDB.find({ _id: req.params.id }, (err, docs) => {
+            res.json({
+                status: 'success',
+                data: docs
+            });
+        });
+    },
+
+    // Adding One Event
+    addOne(req, res, next) {
+        eventsDB.insert(new EventModel(
+            req.body.title,
+            req.body.date,
+            req.body.publishStatus,
+            req.body.tickets,
+            req.body.visitors
+        ), (err, doc) => {
+            if (err) next(err);
+
+            res.json({
+                status: 'success',
+                data: doc
+            })
+        });
+    },
+
+    // Updating One Event
+    updateOne(req, res, next) {
+        eventsDB.update({ _id: req.params.id }, new EventModel(
+            req.body.title,
+            req.body.date,
+            req.body.publishStatus,
+            req.body.tickets,
+            req.body.visitors
+        ), (err, doc) => {
+            if (err) next(err);
+
+            res.json({
+                status: 'success',
+                data: doc
+            })
+        });
+    },
+
+    // Removing One Event
+    removeOne(req, res, next) {
+        eventsDB.remove({ _id: req.params.id }, {}, (err, numRemoved) => {
+            if (err) next(err);
+
+            res.json({ status: 'success' });
+        });
     }
 }

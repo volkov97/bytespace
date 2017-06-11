@@ -9,17 +9,6 @@ const serveIndex = require('serve-index');
 const app = express();
 
 if (process.env.NODE_ENV == 'development') {
-  const swaggerJSDoc = require('./libs/swagger');
-
-  // serve swagger on /swagger
-  app.get('/swagger', function(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(swaggerJSDoc);
-  });
-
-  // serve swagger ui
-  app.use(express.static(path.join(__dirname, '../docs')));
-
   // add design folder to interface
   app.use('/design-docs', serveIndex(path.join(__dirname, '../docs/design-docs'), {'icons': true}));
 }

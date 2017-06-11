@@ -1,27 +1,11 @@
-/**
- * @swagger
- * definitions:
- *   Event:
- *     properties:
- *       id:
- *         type: number
- *       title:
- *         type: string
- *       description:
- *         type: string
- *       date:
- *         type: string
- *       tickets:
- *         type: number
- */
 module.exports = class Event {
     
-    constructor(id, title, description, date, tickets) {
-        this.id = id || 0;
+    constructor(title, date, publishStatus, tickets, visitors) {
         this.title = title || 'Title';
-        this.description = description || 'Description';
         this.date = date || '00.00.0000';
+        this.publishStatus = publishStatus || false;
         this.tickets = tickets || 0;
+        this.visitors = visitors || [];
     }
 
 };
