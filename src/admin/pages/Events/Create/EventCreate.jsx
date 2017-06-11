@@ -28,17 +28,18 @@ export default class EventCreate extends React.Component {
         const form = e.currentTarget;
         e.preventDefault();
 
-        // this.state.currentId
-        //     ? this.props.handlePutEvent(this.state.currentId, parse.parseForm(form))
-        //     : this.props.handlePostEvent(parse.parseForm(form));
+        this.state.currentId
+            ? this.props.handlePutEvent(this.state.currentId, parse.parseForm(form))
+            : this.props.handlePostEvent(parse.parseForm(form));
     }
 
     componentWillMount() {
         this.props.setPageTitle(this.state.currentId ? 'Изменение события' : 'Добавление события');
-        // this.state.currentId ? this.props.handleLoadingCurrentEvent(this.state.currentId) : this.props.flushEvent();
+        !this.props.events.data.length && this.state.currentId ? this.props.handleLoadingEvents() : this.props.flushEvent();
     }
 
     render() {
+        const event = this.props.events.data.length ? this.props.events.data.filter(_ => _._id === this.state.currentId )[0] : {};
         return (
             <div className="CreateChamps">
                 <form onSubmit={_ => this.handleForm(_)}>
@@ -46,17 +47,21 @@ export default class EventCreate extends React.Component {
                         {!this.props.events.isLoading
                             ?
                             <div>
-                                <WidgetRow title="Название" name="titleRU" isRequired>
+                                <WidgetRow title="Название" name="title" isRequired>
                                     <Input name="title"
-                                           value={'Экскусия'}/>
+                                           value={event ? event.title : 'Экскусия'}/>
+                                </WidgetRow>
+                                <WidgetRow title="Колличество мест" name="tickets" isRequired>
+                                    <Input name="tickets"
+                                           value={event ? event.tickets : 0}/>
                                 </WidgetRow>
                                 <WidgetRow title="Дата проведения" name="date">
                                     <DatePicker name="date"
-                                                value={undefined}/>
+                                                value={event ? event.date : undefined}/>
                                 </WidgetRow>
-                                <WidgetRow title="Публиковать" name="statusRU">
+                                <WidgetRow title="Публиковать" name="publishStatus">
                                     <Switch name="publishStatus"
-                                            value={''}/>
+                                            value={event ? event.publishStatus : false}/>
                                 </WidgetRow>
                             </div>
                             :

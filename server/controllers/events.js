@@ -15,10 +15,10 @@ module.exports = {
 
     // Get One Event
     getOne(req, res, next) {
-        eventsDB.find({ _id: req.params.id }, (err, docs) => {
+        eventsDB.findOne({ _id: req.params.id }, (err, doc) => {
             res.json({
                 status: 'success',
-                data: docs
+                data: doc
             });
         });
     },
@@ -60,11 +60,19 @@ module.exports = {
     },
 
     // Removing One Event
-    removeOne(req, res, next) {
-        eventsDB.remove({ _id: req.params.id }, {}, (err, numRemoved) => {
-            if (err) next(err);
+    remove(req, res, next) {
+        const promises = [];
 
-            res.json({ status: 'success' });
+        req.body.ids.map(id => {
+            promises.push(new Promise((resolve, reject) => {
+                eventsDB.remove({ _id: id }, {}, (err, numRemoved) => {
+                    if (err) reject(err);
+                    resolve();
+                });
+            }));
         });
+
+        Promise.all(promises)
+            .then(() => res.json({ status: 'success' }));
     }
 }
