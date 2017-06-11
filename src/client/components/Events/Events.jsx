@@ -1,6 +1,5 @@
 import React from 'react';
-
-import events from './events.json';
+import moment from 'moment';
 
 import './Events.scss';
 
@@ -11,7 +10,7 @@ export default class Events extends React.Component {
 
         this.state = {
             isEventsSelectorOpen: false,
-            events: events.map((event, index) => { return { ...event, selected: !!!index } })
+            events: []
         };
 
         this.handleClickEventSelector = this.handleClickEventSelector.bind(this);
@@ -30,10 +29,28 @@ export default class Events extends React.Component {
         e.preventDefault();
 
         this.setState(_ => ({
-            events: _.events.map(event => { return {...event, selected: event.id === selectedId } }),
+            events: _.events.map(event => {
+                return {...event, selected: event.id === selectedId}
+            }),
             isEventsSelectorOpen: false
         }));
     };
+
+    componentWillMount() {
+        !this.props.events.data.length ? this.props.handleLoadingEvents() : false;
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(1);
+        if (!this.props.events.data.length && nextProps.events.data.length) {
+            this.setState({
+                events: nextProps.events.data.map((event, index) => {
+                    return {...event, id: event._id, selected: !!!index}
+                })
+            });
+        }
+
+    }
 
     render() {
         const selectedEvent = this.state.events.find(_ => _.selected === true);
@@ -44,20 +61,23 @@ export default class Events extends React.Component {
                 <form action="/" className="Events__form form">
                     <div className="form__chosen chosen">
                         <div className="chosen__title">Ближайшее мероприятие</div>
-                        <input type="hidden" name="clientOrder" defaultValue={selectedEvent.id}/>
+                        <input type="hidden" name="clientOrder"
+                               defaultValue={selectedEvent ? selectedEvent.id : false}/>
                         <a className={`chosen__current ${this.state.isEventsSelectorOpen ? 'active' : ''}`} href="#"
                            onClick={this.handleClickEventSelector}>
                             <div className="chosen__option option">
                                 <div className="option__description">
-                                    <span>Экскурсия</span>
+                                    <span>{selectedEvent ? selectedEvent.title : false}</span>
                                     <span className="option__dateTime">
-                                        <span className="option__date">{selectedEvent.date}</span>
-                                        <span className="option__time">{selectedEvent.time}</span>
+                                        <span
+                                            className="option__date">{selectedEvent ? moment(selectedEvent.date).format('DD.MM.YYYY') : false}</span>
+                                        <span
+                                            className="option__time">{selectedEvent ? moment(selectedEvent.date).format('HH:mm') : false}</span>
                                     </span>
                                 </div>
                                 <div className="option__freePlaces">
                                     Свободные места:
-                                    <span className="quantity">{selectedEvent.places}</span>
+                                    <span className="quantity">{selectedEvent ? selectedEvent.tickets : false}</span>
                                 </div>
                             </div>
                         </a>
@@ -66,15 +86,15 @@ export default class Events extends React.Component {
                                 <a className="chosen__option option" href="#" key={index}
                                    onClick={_ => this.handleClickEventOption(_, event.id)}>
                                     <div className="option__description">
-                                        <span>Экскурсия</span>
+                                        <span>{event.title}</span>
                                         <span className="option__dateTime">
-                                        <span className="option__date">{event.date}</span>
-                                        <span className="option__time">{event.time}</span>
+                                        <span className="option__date">{moment(event.date).format('DD.MM.YYYY')}</span>
+                                        <span className="option__time">{moment(event.date).format('HH:mm')}</span>
                                     </span>
                                     </div>
                                     <div className="option__freePlaces">
                                         Свободные места:
-                                        <span className="quantity">{event.places}</span>
+                                        <span className="quantity">{event.tickets}</span>
                                     </div>
                                 </a>
                             )}

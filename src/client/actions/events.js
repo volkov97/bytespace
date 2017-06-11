@@ -34,7 +34,7 @@ export function handleLoadingEvents(size) {
 
         return fetch(`${config.server}/api/events?size=${size}`)
             .then(response => response.json())
-            .then(json => dispatch(fetchEventsSuccess(json)))
+            .then(json => dispatch(fetchEventsSuccess(json.data)))
             .catch(err => dispatch(fetchEventsFailure(err)));
     }
 }

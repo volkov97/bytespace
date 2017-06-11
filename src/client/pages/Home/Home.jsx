@@ -14,9 +14,6 @@ import './Home.scss';
 
 export default class Home extends React.Component {
 
-    componentDidMount() {
-    }
-
     render() {
         return (
             <div className="Home clearfix">
@@ -28,7 +25,7 @@ export default class Home extends React.Component {
                 </label>
 
                 <div className="Home__menu">
-                    <Menu></Menu>
+                    <Menu/>
                 </div>
 
                 <div className="Home__sections">
@@ -37,7 +34,7 @@ export default class Home extends React.Component {
                     <ComputersGallery />
                     <CompaniesGallery />
                     <Reviews />
-                    <Events />
+                    <Events {...this.props} />
                     <Contacts />
                     <Footer />
                 </div>

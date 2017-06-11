@@ -39,7 +39,7 @@ export default class EventCreate extends React.Component {
     }
 
     render() {
-        const event = this.props.events.data.length ? this.props.events.data.filter(_ => _._id === this.state.currentId )[0] : {};
+        const event = this.props.events.data.length ? this.props.events.data.filter(_ => _._id === this.state.currentId )[0] : false;
         return (
             <div className="CreateChamps">
                 <form onSubmit={_ => this.handleForm(_)}>

@@ -1,5 +1,6 @@
 import config from '../../core/config/general.config';
 import fetch from 'isomorphic-fetch';
+import moment from 'moment';
 import {browserHistory} from 'react-router';
 
 import * as actionTypes from '../actions-types/events';
@@ -141,7 +142,7 @@ export function handleLoadingEvents() {
                         cells: [
                             _.title,
                             `${_.tickets - _.visitors}/${_.tickets}`,
-                            _.date,
+                            moment(_.date).format('DD/MM/YYYY HH:mm'),
                             _.publishStatus ? 'Активен' : 'Неактивен'
                         ]
                     }
